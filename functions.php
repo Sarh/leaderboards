@@ -28,7 +28,7 @@ function allHorses($dbh){
 	$results = NULL;
 	if(!$dbh) throw new Exception("Database Handle error"); 
 	try{
-		$query = "SELECT DISTINCT horseName from results ORDER BY horseName DESC";
+		$query = "SELECT DISTINCT horseName from results ORDER BY horseName";
 		$sth = $dbh->prepare($query);
 		$sth->execute();
 		$results = $sth->fetchAll(PDO::FETCH_ASSOC); 
