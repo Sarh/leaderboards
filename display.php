@@ -6,7 +6,7 @@
  * Summary: Created for On The Bit Sim game members, in php and mysql for leaderboards
  */
 
-include_once('Functions.php');
+include_once('functions.php');
 $name = trim(filter_input(INPUT_GET, "name", FILTER_SANITIZE_STRING));
 $results = showPerHorse($name, $dbh);
 function showName($arr){
