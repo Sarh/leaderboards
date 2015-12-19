@@ -94,7 +94,43 @@ function points($resultsArr){
 	}
 	return $points;
 }
+function uniqueShows($name, $dbh){
+	$results = NULL;
+	if(!$dbh) throw new Exception("Database Handle error");
+	try{
+		$query = "SELECT DISTINCT showName, showDate from results WHERE horseName=:name";
+		$sth = $dbh->prepare($query);
+		$sth->bindParam(':name', $name);
+		$sth->execute();
+		$results  = $sth->fetchAll(PDO::FETCH_ASSOC);
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();}
+	catch (PDOException $d){
+		echo $d->getMessage();
+	}
+	return $results;
+	
+}
 
+function resultByID($id, $dbh){
+	
+	if(!$dbh) throw new Exception("Database Handle error");
+	try{
+		$query = "SELECT * FROM results WHERE id=:id";
+		$sth = $dbh->prepare($query);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		$results  = $sth->fetch(PDO::FETCH_ASSOC);
+		
+	} catch (Exception $e) {
+		echo $e->getMessage();}
+	catch (PDOException $d){
+		echo $d->getMessage();
+	}
+	return $results;
+	
+}
 
 
 
