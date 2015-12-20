@@ -12,7 +12,7 @@ function import($dbh, $csv, $number, $truncate){
 	if($number == NULL){$number = false;} 
 
 	if($truncate && $number){
-			echo "here";
+			
 			
 				$query = "TRUNCATE results";
 				$sth = $dbh->prepare($query);
@@ -20,7 +20,7 @@ function import($dbh, $csv, $number, $truncate){
 			$query = "
 						INSERT INTO results VALUES (DEFAULT, :showDate, :showName, :className, :place, :horseName)";
 		$sth = $dbh->prepare($query);
-		var_dump($csv);
+		
 		$count = 1;
 			foreach($csv as $input){
 				if($count == 1) { $count++; continue; }
@@ -36,7 +36,7 @@ function import($dbh, $csv, $number, $truncate){
 					$sth->execute(); }
 					catch (PDOException $e){
 						echo $e->getMessage();
-						var_dump($e);
+						
 					}
 			}
 		
@@ -47,7 +47,7 @@ function import($dbh, $csv, $number, $truncate){
 				$sth = $dbh->prepare($query);
 				$sth->execute();
 			$query = "
-						INSERT INTO results VALUES (:showDate, :showName, :className, :place, :horseName)";
+						INSERT INTO results VALUES ( DEFAULT, :showDate, :showName, :className, :place, :horseName)";
 		$sth = $dbh->prepare($query);
 		
 			foreach($csv as $input){
@@ -71,7 +71,7 @@ function import($dbh, $csv, $number, $truncate){
 		} elseif(!$truncate && $number){
 				
 			$query = "
-						INSERT INTO results VALUES (:showDate, :showName, :className, :place, :horseName)";
+						INSERT INTO results VALUES (DEFAULT, :showDate, :showName, :className, :place, :horseName)";
 		$sth = $dbh->prepare($query);
 		$count = 1;
 			foreach($csv as $input){
@@ -92,7 +92,9 @@ function import($dbh, $csv, $number, $truncate){
 					}
 			}
 	} elseif(!$truncate && !$number){
-		
+		$query = "
+						INSERT INTO results VALUES (DEFAULT, :showDate, :showName, :className, :place, :horseName)";
+		$sth = $dbh->prepare($query);
 	
 			foreach($csv as $input){
 				
