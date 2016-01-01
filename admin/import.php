@@ -1,7 +1,9 @@
 <?php
 
 /*
- * To change this template use Tools | Templates.
+ * Author: Sarah Hall
+ * Date Created: 12/08/2015
+ * Summary: Created for On The Bit Sim game members, in php and mysql for leaderboards
  */
 
 include_once('functions.php');
