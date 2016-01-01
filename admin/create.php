@@ -11,10 +11,10 @@ require('functions.php');
 if($_POST['results']){
 
 	// set the show info, i.e. Show Date and Show Name into an array $show
-	$show = array($_POST['showName'], $_POST['showDate']);
+	$show = array(filter_input(INPUT_POST, 'showName', FILTER_SANITIZE_STRING), filter_input(INPUT_POST, 'showDate', FILTER_SANITIZE_STRING));
 
 	// create a new array consisting of all results, exploded by the new line & return (separates the classes)
-	$array = explode("\n\r", $_POST['results']);
+	$array = explode("\n\r", filter_input(INPUT_POST, 'results', FILTER_SANITIZE_STRING));
 	
 	// for each array, treat it as a class. 
 	foreach($array as $class){
