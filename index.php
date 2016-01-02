@@ -6,7 +6,7 @@
  * Summary: Created for On The Bit Sim game members, in php and mysql for leaderboards
  */
 
-include_once('Functions.php');
+include_once('functions.php');
 
 $horses = allHorses($dbh);?>
 <!DOCTYPE>
