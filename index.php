@@ -6,14 +6,14 @@
  * Summary: Created for On The Bit Sim game members, in php and mysql for leaderboards
  */
 
-include_once('functions.php');
+include_once('Functions.php');
 
 $horses = allHorses($dbh);?>
 <!DOCTYPE>
 <html>
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-	   	<link href="css/footable.core.min.css" rel="stylesheet" type="text/css" />
+	   	<link href="css/footable.core.css" rel="stylesheet" type="text/css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 		<script src="js/footable.js" type="text/javascript"></script>
 		<script src="js/footable.sort.js" type="text/javascript"></script>
@@ -41,7 +41,7 @@ $horses = allHorses($dbh);?>
 			<tbody>';
 		foreach($horses as $horse){
 			echo 	'<tr>
-					<td>'.$horse['horseName'].'</td>
+					<td><a href="display.php?name='.$horse[horseName].' " >'.$horse[horseName].'</a></td>
 					<td>'.points(showPerHorse($horse['horseName'], $dbh)).'</td>
 				</tr>';
 		}
