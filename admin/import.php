@@ -7,7 +7,7 @@
  */
 
 include_once('functions.php');
-
+// Following code written by certaiN (http://php.net/manual/en/features.file-upload.php#114004), modified for use here
 if($_POST['sent']){
 	
 	$number = filter_input(INPUT_POST, 'ignore_header', FILTER_VALIDATE_BOOLEAN);

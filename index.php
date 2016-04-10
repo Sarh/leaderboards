@@ -13,17 +13,13 @@ $horses = allHorses($dbh);?>
 <html>
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-	   	<link href="css/footable.core.css" rel="stylesheet" type="text/css" />
+	   	<link href="vendor/FooTable-2/css/footable.core.css" rel="stylesheet" type="text/css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
-		<script src="js/footable.js" type="text/javascript"></script>
-		<script src="js/footable.sort.js" type="text/javascript"></script>
-		<script src="js/footable.paginate.js" type="text/javascript"></script>
-		<script src="js/footable.filter.js" type="text/javascript"></script>
-		<script type="text/javascript">
-			$(function () {
-				$('.footable').footable();
-			});
-		</script>
+		<script src="vendor/FooTable-2/js/footable.js" type="text/javascript"></script>
+		<script src="vendor/FooTable-2/js/footable.sort.js" type="text/javascript"></script>
+		<script src="vendor/FooTable-2/js/footable.paginate.js" type="text/javascript"></script>
+		<script src="vendor/FooTable-2/js/footable.filter.js" type="text/javascript"></script>
+		
 	</head>
 	<body>
 		<?php 
@@ -58,5 +54,11 @@ $horses = allHorses($dbh);?>
 			
 		
 		?>
+<!-- Scripts --->
+		<script type="text/javascript">
+			$(function () {
+				$('.footable').footable();
+			});
+		</script>
 	</body>
 </html>
